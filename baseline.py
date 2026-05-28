@@ -259,6 +259,10 @@ if __name__ == "__main__":
         rolling_std_4  = float(np.std(demands, ddof=1)) if len(set(demands)) > 1 else 0.0
 
         week_of_year       = float(env.week)
+
+      # demand_x_leadtime usa la media del lead time (5) como proxy del valor real,
+# que no está disponible en tiempo de inferencia. El generador usó el valor real;
+# el sesgo resultante es pequeño dado que la media es 5 y la varianza del lead time [2,8] es moderada.
         demand_x_leadtime  = lag_1 * policy.lead_time_mean   # proxy: lag_1 × lead_time_mean
 
         features = [
