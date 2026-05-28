@@ -113,7 +113,7 @@ class BaselinePolicy:
         service_level=0.95,
         lead_time_mean=5,
         holding_cost=1.0,
-        stockout_cost=5.0,
+        stockout_cost=10.0,
         fixed_order_cost=10.0,
     ):
         self.model            = model
